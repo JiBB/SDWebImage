@@ -186,6 +186,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
                 }
 
                 [_fileManager createFileAtPath:[self defaultCachePathForKey:key] contents:data attributes:nil];
+                [[NSURL URLWithString:[self defaultCachePathForKey:key]] setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:nil];
             }
         });
     }
